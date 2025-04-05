@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TetraCare+ Chatbot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+  <div class="fixed bottom-4 right-4">
+    <button id="toggleChat" class="bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-700 text-lg">💬</button>
+  </div>
+
+  <div id="chatContainer" class="hidden fixed bottom-20 right-4 w-full max-w-md bg-white dark:bg-gray-800 shadow-2xl rounded-2xl overflow-hidden z-50">
+    <!-- Header -->
+    <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+      <h2 class="text-xl font-semibold">TetraCare+ Chatbot</h2>
+      <div class="flex gap-2 items-center">
+        <button id="clearChat" title="Clear Chat" class="text-xl">🗑️</button>
+        <button id="exportChat" title="Export Chat" class="text-xl">📄</button>
+        <button id="modeToggle" title="Toggle Dark Mode" class="text-xl">🌙</button>
+      </div>
+    </div>
+
+    <!-- Chat Area -->
+    <div id="chatBox" class="p-4 space-y-2 h-[450px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600">
+      <!-- Messages appear here -->
+    </div>
+
+    <!-- Input -->
+    <form id="chatForm" class="flex items-center gap-2 border-t border-gray-200 dark:border-gray-700 p-4">
+      <input
+        type="text"
+        id="messageInput"
+        placeholder="Type your message..."
+        class="flex-1 px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 dark:focus:ring-blue-600"
+      />
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition-colors">Send</button>
+      <!-- Voice input button moved to input section -->
+      <button type="button" id="voiceInput" title="Voice Input" class="bg-gray-200 dark:bg-gray-700 text-black dark:text-white p-3 rounded-full ml-2">
+        🎙️
+      </button>
+    </form>
+  </div>
+
+  <audio id="sendSound" src="https://www.soundjay.com/button/sounds/button-16.mp3" preload="auto"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
